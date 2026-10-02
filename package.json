@@ -1,6 +1,6 @@
 {
   "name": "mindnote",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Mindmap-based Notion-like Desktop Note App",
   "main": "electron/main.js",
   "scripts": {
