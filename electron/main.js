@@ -545,7 +545,8 @@ function setupAutoUpdater() {
   });
 
   ipcMain.handle('quit-and-install', () => {
-    autoUpdater.quitAndInstall();
+    // isSilent: true (설치 창 일절 없이 백그라운드 무소음 설치), isForceRunAfter: true (설치 후 즉시 자동 실행)
+    autoUpdater.quitAndInstall(true, true);
   });
 
   ipcMain.handle('get-app-version', () => {
