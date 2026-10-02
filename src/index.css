@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Light Theme (Default) */
+.theme-light {
+  --bg-app: #FBFBFA;
+  --bg-sidebar: #F7F7F5;
+  --bg-card: #FFFFFF;
+  --bg-header: #FAFAF9;
+  --border-color: #E9E9E7;
+  --border-subtle: #ECECE9;
+  --text-primary: #37352F;
+  --text-secondary: #787774;
+  --text-muted: #9B9A97;
+  --hover-bg: #EFEFED;
+}
+
+/* Dark Theme */
+.theme-dark {
+  --bg-app: #191919;
+  --bg-sidebar: #202020;
+  --bg-card: #252525;
+  --bg-header: #202020;
+  --border-color: #2F2F2F;
+  --border-subtle: #2F2F2F;
+  --text-primary: #E6E6E5;
+  --text-secondary: #9B9A97;
+  --text-muted: #6B6B68;
+  --hover-bg: #2C2C2C;
+}
+
+/* Sepia (Warm Paper) Theme */
+.theme-sepia {
+  --bg-app: #F4EEDD;
+  --bg-sidebar: #ECE3CE;
+  --bg-card: #FAF6EB;
+  --bg-header: #EFE8D6;
+  --border-color: #DCD0B6;
+  --border-subtle: #DFD4BC;
+  --text-primary: #433422;
+  --text-secondary: #79664E;
+  --text-muted: #A08C73;
+  --hover-bg: #E5DBBE;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* React Flow custom styles */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background-color: #2383E2;
+  border: 2px solid white;
+}
+.react-flow__handle:hover {
+  width: 10px;
+  height: 10px;
+}
+
+/* React Flow GPU 하드웨어 가속 및 프레임 최적화 */
+.react-flow__viewport {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.react-flow__node {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.react-flow__edge {
+  will-change: transform;
+}
+
+/* 선택된 엣지를 노드들보다 최상위로 올리고 선명하게 강조 */
+.react-flow__edge.selected {
+  z-index: 1000 !important;
+}
+.react-flow__edge.selected path {
+  cursor: pointer;
+}
+.react-flow__edge-path {
+  cursor: pointer;
+}
+
+.react-flow__controls {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--border-color) !important;
+  overflow: hidden;
+  background: var(--bg-card) !important;
+}
+.react-flow__controls-button {
+  border-bottom: 1px solid var(--border-color) !important;
+  background: var(--bg-card) !important;
+  fill: var(--text-primary) !important;
+}
+.react-flow__controls-button:hover {
+  background: var(--hover-bg) !important;
+}
+
+/* React Flow 연결 핸들 유효 / 금지 시각 피드백 */
+.react-flow__handle.connecting {
+  cursor: crosshair !important;
+}
+
+.react-flow__handle.valid,
+.react-flow__handle-valid {
+  background-color: #10B981 !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.45) !important;
+}
+
+.react-flow__handle.invalid,
+.react-flow__handle-invalid {
+  background-color: #EF4444 !important;
+  box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.55) !important;
+  cursor: not-allowed !important;
+}
+
+/* 각 방향별 translate(-50%, -50%)를 완벽히 유지하여 중심축 기준 확대 (위치 이탈 방지) */
+.react-flow__handle-top.valid,
+.react-flow__handle-top.invalid {
+  transform: translate(-50%, -50%) scale(1.3) !important;
+}
+
+.react-flow__handle-bottom.valid,
+.react-flow__handle-bottom.invalid {
+  transform: translate(-50%, 50%) scale(1.3) !important;
+}
+
+.react-flow__handle-left.valid,
+.react-flow__handle-left.invalid {
+  transform: translate(-50%, -50%) scale(1.3) !important;
+}
+
+.react-flow__handle-right.valid,
+.react-flow__handle-right.invalid {
+  transform: translate(50%, -50%) scale(1.3) !important;
+}
+
+/* 유효하지 않은 연결선 스타일 (빨간 점선 및 애니메이션) */
+.react-flow__connection.invalid .react-flow__connection-path,
+.react-flow__connection-path.invalid {
+  stroke: #EF4444 !important;
+  stroke-dasharray: 6, 4 !important;
+  stroke-width: 3px !important;
+}
+
+.react-flow__connection.valid .react-flow__connection-path,
+.react-flow__connection-path.valid {
+  stroke: #10B981 !important;
+  stroke-width: 3px !important;
+}

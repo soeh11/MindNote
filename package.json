@@ -1,0 +1,73 @@
+{
+  "name": "mindnote",
+  "version": "0.0.1",
+  "description": "Mindmap-based Notion-like Desktop Note App",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "electron:start": "electron .",
+    "start": "concurrently -k \"vite\" \"wait-on tcp:5173 && electron .\"",
+    "dist": "vite build && electron-builder"
+  },
+  "keywords": [
+    "notion",
+    "mindmap",
+    "notes",
+    "electron"
+  ],
+  "author": "MindNote Team",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@xyflow/react": "^12.3.6",
+    "clsx": "^2.1.1",
+    "electron-updater": "^6.8.9",
+    "lucide-react": "^0.475.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.7",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.mindnote.app",
+    "productName": "MindNote",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "soeh11",
+        "repo": "MindNote"
+      }
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

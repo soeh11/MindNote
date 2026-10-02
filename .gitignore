@@ -1,0 +1,16 @@
+# 의존성 패키지
+node_modules/
+
+# 빌드 및 배포 산출물
+dist/
+release/
+
+# 로컬 개인 데이터 (개인 메모 및 마인드맵)
+data/
+
+# 환경 변수 및 임시 파일
+.env
+.env.local
+*.log
+.DS_Store
+Thumbs.db
